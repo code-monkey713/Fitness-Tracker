@@ -20,7 +20,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitnesstracker"
   useFindAndModify: false,
 });
 
-// routes go here
 const routes = require('./controllers');
 
 app.use(routes);
