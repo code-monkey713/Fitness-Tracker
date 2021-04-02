@@ -21,7 +21,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitnesstracker"
 });
 
 // routes go here
+const routes = require('./controllers');
 
+app.use(routes);
 
 app.listen(PORT, () => {
   console.log(`Fitness Tracker Application running on port ${PORT}!`);
