@@ -12,6 +12,10 @@ router.get('/workouts', (req, res) => {
     })
 });
 
+router.get('/stats', (req, res) => {
+  
+});
+
 router.get('/workouts/range', (req, res) => {
   Workout.find({})
     .limit(7)
@@ -23,12 +27,14 @@ router.get('/workouts/range', (req, res) => {
     })
 });
 
-router.get('/exercise', (req, res) => {
-  
-});
-
-router.get('/stats', (req, res) => {
-  
+router.post('/workouts', ({ body }, res) => {
+  Workout.create({})
+  .then((dbWorkOut) => {
+    res.json(dbWorkOut);
+  })
+  .catch(({err}) => {
+    console.log(err);
+  })
 });
 
 module.exports = router;
