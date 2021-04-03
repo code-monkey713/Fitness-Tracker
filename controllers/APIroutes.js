@@ -12,6 +12,17 @@ router.get('/workouts', (req, res) => {
     })
 });
 
+router.get('/workouts/range', (req, res) => {
+  Workout.find({})
+    .limit(7)
+    .then((dbWorkOut) => {
+      res.json(dbWorkOut);
+    })
+    .catch((err) => {
+      res.json(err);
+    })
+});
+
 router.get('/exercise', (req, res) => {
   
 });
