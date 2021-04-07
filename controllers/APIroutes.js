@@ -1,9 +1,8 @@
 const router = require('express').Router();
-// const path = require('path');
 const Workout = require('../models/workout');
 
 router.get('/workouts', (req, res) => {
-  Workout.find({}, null, { sort: { day: 1 } })
+  Workout.find({}, null, { sort: { day: -1 } })
     .then((dbWorkOut) => {
       res.json(dbWorkOut);
     })
@@ -29,8 +28,8 @@ router.put('/workouts/:id', ({ params, body }, res) => {
 });
 
 router.get('/workouts/range', (req, res) => {
-  Workout.find({})
-    // .limit(7)
+  Workout.find({}, null, { sort: { day: -1 } })
+    .limit(7)
     .then((dbWorkOut) => {
       res.json(dbWorkOut);
     })
