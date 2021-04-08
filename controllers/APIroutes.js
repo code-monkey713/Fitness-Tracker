@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Workout = require('../models/workout');
 
 router.get('/workouts', (req, res) => {
-  Workout.find({}, null, { sort: { day: -1 } })
+  Workout.find({}, null, { sort: { day: 1 } })
     .then((dbWorkOut) => {
       res.json(dbWorkOut);
     })
